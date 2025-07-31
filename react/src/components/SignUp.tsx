@@ -16,7 +16,6 @@ export default function SignUp() {
         email,
         password,
         name,
-        // callbackURL: "http://localhost:3000/email-verify",
       },
 
       {
@@ -25,9 +24,9 @@ export default function SignUp() {
           setIsLoading(true);
         },
         onSuccess: (ctx) => {
-          console.log("success", ctx);
+          setIsLoading(false);
 
-          navigate("/auth");
+          navigate("/login");
         },
         onError: (ctx) => {
           // display the error message
@@ -99,8 +98,9 @@ export default function SignUp() {
             <button
               className="w-full px-4 py-2 text-white font-medium bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150"
               type="submit"
+              disabled={isLoading}
             >
-              Create account
+              {isLoading ? "Loading..." : "Create account"}
             </button>
           </form>
           <div className="mt-5">

@@ -24,7 +24,7 @@ export default function SignIn() {
         onSuccess: (ctx) => {
           console.log("success", ctx);
           setIsLoading(false);
-          navigate("/auth");
+          navigate("/protected");
         },
         onError: (ctx) => {
           // display the error message
